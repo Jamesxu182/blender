@@ -19,7 +19,7 @@ depends=('libpng' 'libtiff' 'openexr' 'python' 'desktop-file-utils' 'python-requ
          'freetype2' 'openal' 'ffmpeg' 'fftw' 'boost-libs' 'opencollada' 'alembic' 'openxr'
          'openimageio' 'libsndfile' 'jack' 'opencolorio' 'openshadinglanguage' 'openimagedenoise'
          'jemalloc' 'libspnav' 'ptex' 'opensubdiv' 'openvdb' 'log4cplus' 'sdl2' 'embree')
-makedepends=('cmake' 'boost' 'mesa' 'git' 'llvm' 'cuda' 'ninja')
+makedepends=('cmake' 'boost' 'mesa' 'git' 'llvm' 'cuda' 'ninja' 'libxkbcommon')
 optdepends=('cuda: cycles renderer cuda support')
 options=(!strip)
 source=("git://git.blender.org/blender.git#tag=v$pkgver"
@@ -67,6 +67,7 @@ build() {
     -DCMAKE_BUILD_TYPE=Release \
     -DWITH_INSTALL_PORTABLE=OFF \
     -DWITH_PYTHON_INSTALL=OFF \
+    -DWITH_GHOST_WAYLAND=ON \
     -DPYTHON_VERSION=$PYTHON_VER \
     -DPYTHON_LIBPATH=/usr/lib \
     -DPYTHON_LIBRARY=python$PYTHON_VER \
